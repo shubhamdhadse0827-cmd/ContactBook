@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Alert Page</title>
+</head>
+<body>
+
+<div th:fragment="alertBox"
+     th:if="${session.msg}"
+     th:classappend="${session.msg.type}"
+     class="alert custom-alert text-center">
+
+    <i class="fa-solid fa-circle-check success-icon"
+       th:if="${session.msg.type == 'success'}"></i>
+
+    <i class="fa-solid fa-circle-exclamation danger-icon"
+       th:if="${session.msg.type == 'danger'}"></i>
+
+    <i class="fa-solid fa-triangle-exclamation warning-icon"
+       th:if="${session.msg.type == 'warning'}"></i>
+
+    <span th:text="${session.msg.content}"></span>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,
+  shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
+  crossorigin="anonymous">
+    
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="" th:href="@{/css/style1.css}"/>
+  <link rel="stylesheet" href="" th:href="@{/css/alert.css}"/>
+
+  <title th:text="${title}">Base HTML</title>
+</head>
+<body>
+<!-------------------- NAVIGATION BAR START -------------------->
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+	 
+	<!-- Brand Logo / Project Name -->
+	<span class="navbar-brand font-weight-bold" 
+     style="font-size: 30px;">
+		ContactBook
+	</span>
+   
+    <!-- Mobile Toggle Button -->
+	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" 
+    aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+	</button> -->
+	
+	<button class="navbar-toggler d-lg-none"
+        type="button"
+        onclick="toggleSidebar()">
+    	<span class="navbar-toggler-icon"></span>
+	</button>
+	
+	<!-- Navigation Menu -->
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto text-uppercase">
+			
+			<!-- Home Link -->
+			<li class="nav-item active mx-3">
+				<a class="nav-link text-white font-weight-bold"
+        		style="font-size: 20px;" th:href="@{/}">
+         			Home
+         		</a>
+      		</li>
+      		
+      		<!-- About Link -->
+      		<li class="nav-item active mx-3">
+       			<a class="nav-link text-white font-weight-bold"
+        		style="font-size: 20px;" th:href="@{/about}">
+         			About
+       			</a>
+      		</li>
+
+			<!-- Contact Link -->
+      		<li class="nav-item active mx-3">
+       			<a class="nav-link text-white font-weight-bold"
+        		style="font-size: 20px;" th:href="@{/contact}">
+         			Contact
+       			</a>
+      		</li>
+
+			<!-- Login Link -->
+      		<li class="nav-item active mx-3">
+       			<a class="nav-link text-white font-weight-bold"
+        		style="font-size: 20px;" th:href="@{/login}">
+         			Login
+       			</a>
+      		</li>
+		</ul>
+	</div>
+	
+	<div class="sidebar" id="mobileSidebar">
+
+    <span class="cross" onclick="toggleSidebar()">&times;</span>
+
+    <a th:href="@{/}" class="item text-uppercase">
+    <i class="fa-solid fa-house"></i>Home</a>
+    
+    <a th:href="@{/about}" class="item text-uppercase">
+    <i class="fa-solid fa-circle-info"></i>About</a>
+    
+    <a th:href="@{/contact}" class="item text-uppercase">
+    <i class="fa-solid fa-address-book"></i>Contact</a>
+    
+    <a th:href="@{/login}" class="item text-uppercase">
+    <i class="fa-solid fa-right-to-bracket"></i>Login</a>
+
+</div>
+	
+	
+</nav>
+<!-------------------- NAVIGATION BAR END -------------------->
+
+<!-------------------- DYNAMIC PAGE CONTENT -------------------->
+<div th:replace="${content}">
+
+</div>
+<!-------------------- END DYNAMIC PAGE CONTENT -------------------->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" 
+crossorigin="anonymous"></script>
+<script src="" th:src="@{/javascript/script.js}"></script>
+
+<!-------------------- FOOTER SECTION START -------------------->   
+<footer class="footer">
+	
+	<!-- Footer Top Content -->
+	<div class="footer-top">
+		
+		 <!---------- Footer Branding ---------->
+    	<div class="footer-logo">
+    	
+    		<!-- Logo + Website Name -->
+      		<div class="footer-brand">
+       			<i class="fa-solid fa-address-book"></i>
+        		<h2>Smart ContactBook</h2>
+      		</div>
+			
+			<!-- Tagline -->
+		    <p>Manage • Organize • Connect</p>
+		</div>
+
+		<!---------- Footer Navigation Columns ---------->
+		<div class="footer-links">
+			
+			<!-- Features Section -->
+      		<div>
+       			<h4>Features</h4>
+       			
+       			<!-- Desktop Version -->
+        		<div class="desktop-footer">
+         			<p>Add Contacts</p>
+         			<p>Manage Contacts</p>
+         			<p>Contact Categories</p>
+        		</div>
+				
+				<!-- Mobile Version -->
+        		<div class="mobile-footer">
+         			<p>Add</p>
+         			<p>Manage</p>
+         			<p>Categories</p>
+        		</div>
+			</div>
+			
+			<!-- Quick Links Section -->
+      		<div>
+       			<h4>Quick Links</h4>
+        		<p>Home</p>
+        		<p>About</p>
+        		<p>Contact</p>
+      		</div>
+
+			<!-- Technology Stack Section -->
+      		<div>
+       			<h4>Technology</h4>
+        		<p>MySQL</p>
+        		<p>Hibernate</p>
+        		<p>Spring Boot</p>    
+      		</div>
+      		
+      		<!-- Social Media / Connect Section -->
+      		<div>
+       			<h4>Connect</h4>
+				
+				<!-- Desktop View -->
+       			<div class="desktop-connect">
+
+        			<div class="social-item">
+         				<i class="fab fa-github"></i>
+          				<span>Github</span>
+        			</div>
+
+        			<div class="social-item">
+         				<i class="fab fa-linkedin"></i>
+          				<span>LinkedIn</span>
+        			</div>
+
+        			<div class="social-item">
+         				<i class="fab fa-instagram"></i>
+          				<span>Instagram</span>
+        			</div>
+     			</div>
+				
+				<!-- Mobile View -->
+       			<div class="mobile-connect">
+        			<p>Github</p>
+        			<p>LinkedIn</p>
+        			<p>Instagram</p>
+       			</div>
+      		</div>
+		</div>
+    </div>
+	
+    <hr>
+    
+    <!-- Copyright Section -->
+    <div class="footer-bottom">
+    	<p>
+      		© 2026 Smart ContactBook |
+      		Designed & Developed by <strong>Shubham Dhadse</strong>
+     	</p>
+    </div>
+</footer>
+</body>
+</html>

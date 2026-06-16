@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normalUser/base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Settings Page</title>
+</head>
+<body>
+<section class="settings-section">
+
+    <div class="settings-card">
+		<div th:replace="~{fragments/alert :: alertBox}"></div>
+
+        <div class="settings-header">
+            <i class="fas fa-lock"></i>
+            <h2>Change Password</h2>
+            <p>Update your account password to keep your account secure.</p>
+        </div>
+
+        <form th:action="@{changePassword}" method="post">
+        
+
+            <div class="form-group">
+    <label>Current Password</label>
+
+    <div class="password-wrapper">
+        <input type="password"
+               class="form-control password-field"
+               placeholder="Enter current password"
+               name="currentPassword"
+               required>
+
+        <span class="toggle_password">
+            <i class="fa-solid fa-eye"></i>
+        </span>
+    </div>
+</div>
+
+           <div class="form-group">
+    <label>New Password</label>
+
+    <div class="password-wrapper">
+        <input type="password"
+               class="form-control password-field"
+               placeholder="Enter new password"
+               name="newPassword"
+               required>
+
+        <span class="toggle_password">
+            <i class="fa-solid fa-eye"></i>
+        </span>
+    </div>
+</div>
+
+            <div class="form-group">
+    <label>Confirm Password</label>
+
+    <div class="password-wrapper">
+        <input type="password"
+               class="form-control password-field"
+               placeholder="Confirm new password"
+               name="confirmPassword"
+               required>
+
+        <span class="toggle_password">
+            <i class="fa-solid fa-eye"></i>
+        </span>
+    </div>
+</div>
+
+            <div class="button-group">
+
+                <button type="submit" class="save-btn">
+                    Change Password
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</section>
+</body>
+</html>

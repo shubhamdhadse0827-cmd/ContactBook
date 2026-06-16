@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{normalUser/base::Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>MyProfile Page</title>
+</head>
+<body>
+<section class="profile-container">
+
+    <div class="profile-card">
+        <div class="profile-top">
+            <img src="/image/default-contact.png" alt="Profile Image">
+            <h2 th:text="${user.name}"></h2>
+            <p>Smart Contact Manager User</p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="profile-table">
+
+                <tr>
+                    <th>User ID</th>
+                    <td th:text="${'USR00'+user.u_id}"></td>
+                </tr>
+
+                <tr>
+                    <th>Full Name</th>
+                    <td th:text="${user.name}"></td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td th:text="${user.email}"></td>
+                </tr>
+
+                <tr>
+                    <th>Phone</th>
+                    <td>8962293124</td>
+                </tr>
+
+                <tr>
+                    <th>Role</th>
+                    <td th:text="${user.role}"></td>
+                </tr>
+
+                <tr>
+                    <th>Account Status</th>
+                    <td>
+                        <span class="status">Active</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>About</th>
+                    <td th:text="${user.about}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="profile-buttons">
+            <button class="btn-primary">
+                <i class="fa-solid fa-user-pen"></i>
+                Edit Profile
+            </button>
+
+             <a th:href="@{/user/settings}">
+        <button type="button" class="btn-secondary">
+            <i class="fa-solid fa-lock"></i>
+            Change Password
+        </button>
+    </a>
+        </div>
+
+    </div>
+
+</section>
+</body>
+</html>

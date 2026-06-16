@@ -1,0 +1,1624 @@
+/* GLOBAL STYLES */
+body{
+	background: #e2e2e2;
+}
+
+/* SIDEBAR SECTION */
+.sidebar{
+    width:18%;
+    height: 100%;
+    position: fixed;
+    top: 71px; /* navbar ke niche */
+    left: 0;
+    background: #ffffff;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.08);
+    padding-top: 45px;
+    z-index: 999;
+}
+
+.sidebar .item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar .item i{
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar .item:hover{
+    background: rgba(13,110,253,0.08);
+    color: #0d6efd;
+    border-left: 4px solid #0d6efd;
+    padding-left: 30px;
+}
+
+.sidebar .cross{
+    display: none;
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width:768px){
+	
+    .sidebar{
+        position: fixed;
+        top: 0;
+        left : auto;
+        right: -260px; 
+        width: 260px;
+        height: 100vh;
+        transition: 0.3s;
+        z-index: 9999;
+    }
+    
+    .sidebar.show{
+        right: 0;       
+    }
+    
+    .sidebar .cross{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+
+        font-size: 30px;
+        font-weight: bold;
+        color: #666;
+
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .cross:hover{
+        color: red;
+        transform: rotate(90deg);
+    }
+}
+
+/* FOOTER MAIN CONTAINER */
+.footer{
+    width: 100%;
+    padding: 20px 60px;
+    background: #d9d9d9;
+    margin-top: 0;
+    border-top: 2px solid #c5c5c5;
+}
+
+/* DESKTOP / MOBILE CONTENT TOGGLE */
+.desktop-footer{
+    display: block;
+}
+
+.desktop-connect{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.mobile-footer{
+    display: none;
+}
+
+.mobile-connect{
+    display:none;
+}
+
+/* FOOTER TOP LAYOUT */
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* FOOTER BRANDING SECTION */
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:8px;
+}
+
+.footer-brand i{
+    font-size:32px;
+    color:#007bff;
+}
+
+.footer-logo h2{
+    font-size:38px;
+    font-weight:700;
+    color:#222;
+    margin:0;
+    letter-spacing:0.5px;
+}
+
+.footer-logo p{
+    color:#666;
+    font-size:22px;
+    margin-left:44px;
+}
+
+/* FOOTER LINKS SECTION */
+.footer-links{
+    display: flex;
+    gap: 50px;
+}
+
+.footer-links > div{
+    min-width:120px;
+}
+
+.footer-links h4{
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #222;
+    
+}
+
+.footer-links p{
+    margin: 3px 0;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+.footer-links p:hover{
+    color: #007bff;
+}
+
+/* SOCIAL MEDIA LINKS */
+.social-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.social-item i{
+    font-size:20px;
+}
+
+.social-item span{
+    font-size:16px;
+    color:#555;
+    transition:0.3s;
+}
+
+.social-item:hover span,
+.social-item:hover i{
+    color:#007bff;
+}
+
+/* FOOTER BOTTOM SECTION */
+.footer hr{
+    margin: 15px 0;
+}
+
+.footer-bottom{
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+@media(max-width:768px){
+
+	/* Mobile Content Visibility */
+	.mobile-footer{
+        display:block;
+    }
+	
+	.mobile-connect{
+        display:block;
+    }
+    
+    .desktop-footer{
+        display:none;
+    }
+	
+	.desktop-connect{
+    	display:none;
+	}
+
+	.navbar-brand{
+        font-size: 22px !important;
+    }
+	
+ 	/* Footer Container */
+    .footer{
+    	padding:20px 10px;
+        border-top: 2px solid #c5c5c5;
+        background: #d9d9d9;
+    }
+	
+	/* Footer Layout */
+    .footer-top{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:25px;
+    }
+
+	/* Footer Branding */
+	.footer-brand{
+        justify-content:center;
+    }
+
+    .footer-brand i{
+        font-size:28px;
+    }
+
+    .footer-logo h2{
+        font-size:26px;
+    }
+
+    .footer-logo p{
+        margin-left:0;
+        font-size:16px;
+    }
+    
+    /* Footer Links Grid */
+    .footer-links{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:8px;
+        text-align:center;
+    }
+
+    .footer-links > div{
+        min-width:unset;
+    }
+
+    .footer-links h4{
+        font-size:14px;
+        margin-bottom:6px;
+        font-weight:600;
+    }
+
+    .footer-links p{
+        font-size:12px;
+        margin:2px 0;
+        line-height:1.3;
+    }
+
+	/* Footer Copyright */
+    .footer-bottom{
+        font-size:12px;
+        line-height:1.4;
+    }
+}
+/* = = = = = = = = = END BASE FILE CSS = = = = = = = = = */
+
+/* = = = = = = = = = START HOME FILE CSS = = = = = = = = = */
+
+/* HERO / BANNER SECTION */
+.banner{
+	width: 100%;
+	height: 93vh;
+
+	background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+	            url("https://res.cloudinary.com/dvxil62kq/image/upload/q_auto/f_auto/v1781607602/banner1_twhs5o.png");
+
+	background-size: cover;
+	background-position: top center;
+	color: white;
+}
+
+.hero-content{
+	margin-left: 40px;
+}
+
+.hero-title{
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 1.1;
+	font-family: "Segoe UI", sans-serif;
+}
+
+.hero-title span{
+	color: #0d6efd;
+	white-space: nowrap;
+	font-weight: 600;
+}
+
+.hero-text{
+	margin-top: 25px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.5;
+	max-width: 650px;
+	font-family: "Segoe UI", sans-serif;
+}
+
+/* STATISTICS CARDS */
+.stats-container{
+	display: flex;
+	gap: 20px;
+	margin-top: 30px;
+	flex-wrap: wrap;
+}
+
+.stat-card{
+	width: 140px;
+	padding: 18px;
+	background: rgba(255,255,255,0.12);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	text-align: center;
+	border: 1px solid rgba(255,255,255,0.2);
+	transition: 0.3s;
+}
+
+.stat-card:hover{
+	transform: translateY(-5px);
+	background: rgba(255,255,255,0.18);
+}
+
+.stat-card h3{
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 5px;
+	color: #4da3ff;
+}
+
+.stat-card p{
+	font-size: 16px;
+	margin: 0;
+	color: white;
+}
+
+/* CALL TO ACTION BUTTON */
+.hero-btn{
+	margin-top: 35px;
+	margin-left: 180px;
+	padding: 12px 28px;
+	border: none;
+	border-radius: 10px;
+	background: #0d6efd;
+	color: white;
+	font-size: 18px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.hero-btn:hover{
+	background: #0b5ed7;
+	transform: translateY(-3px);
+}
+
+.hero-btn:active{
+	transform: scale(0.96);
+}
+
+.hero-btn i{
+	font-size: 16px;
+	font-weight: 600;
+	transition: 0.3s;
+}
+
+.hero-btn:hover i{
+	transform: translateX(5px);
+}
+
+/* REVIEW SECTION */
+.review-section{
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.review-wrapper{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* REVIEW SCROLL FUNCTIONALITY */
+.review-scroll{
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.review-scroll.active{
+    max-height: 650px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.review-scroll.active::-webkit-scrollbar{
+    width: 6px;
+}
+
+.review-scroll.active::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.review-scroll.active::-webkit-scrollbar-thumb{
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+/* REVIEW ACTION BUTTONS */
+.review-btns{
+    text-align:center;
+    margin-top:20px;
+}
+
+#closeBtn{
+    display:none;
+    margin-left:10px;
+}
+
+/* REVIEW CARD DESIGN */
+.review-card{
+    background: #fff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.review-card:hover{
+    transform: translateY(-5px);
+}
+
+.review-img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+}
+
+.rating{
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.review-comment{
+    color: #555;
+     text-align: left;
+    line-height: 1.6;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+/* = = = = =  MOBILE RESPONSIVE DESIGN = = = = = */
+
+@media (max-width: 768px){
+
+    /* HERO SECTION */
+    .banner{
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 50px;
+        background-position: 75% center;
+        
+    }
+
+    .hero-content{
+        margin-left: 0;
+        margin-top: -30px;
+        text-align: center;
+    }
+
+    .hero-title{
+        font-size: 38px;
+        line-height: 1.2;
+    }
+
+    .hero-title span{
+        white-space: normal;
+         font-size: 0.9em;
+    }
+
+    .hero-text{
+        font-size: 18px;
+        margin: 20px auto;
+        max-width: 100%;
+    }
+
+    /* Stats Cards */
+    .stats-container{
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .stat-card{
+        width: 110px;
+        padding: 14px;
+    }
+
+    .stat-card h3{
+        font-size: 22px;
+    }
+
+    .stat-card p{
+        font-size: 14px;
+    }
+
+    /* CTA Button */
+    .hero-btn{
+        margin: 30px auto 0;
+        font-size: 16px;
+        padding: 10px 22px;
+    }
+
+    /* Review Section */
+    .review-section{
+        padding: 50px 15px;
+    }
+
+    .review-wrapper{
+        max-width: 420px;
+        padding: 20px;
+    }
+
+    .review-wrapper h2{
+        font-size: 28px;
+    }
+
+    .review-card{
+        padding: 20px;
+    }
+
+    .review-img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .rating{
+        font-size: 18px;
+    }
+
+    .review-comment{
+        font-size: 14px;
+        text-align: center;
+    }
+}
+/* = = = = = = = = = END HOME FILE CSS = = = = = = = = = */
+
+/* = = = = = = = = = START ABOUT FILE CSS = = = = = = = = = */
+
+.hero-section {
+    background: linear-gradient(135deg,#0f172a,#1e3a8a);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* About Content */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 20px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-text p {
+    line-height: 1.8;
+    color: #64748b;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Mission Vision */
+.mission-section {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+.mission-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    flex: 1;
+}
+
+.mission-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+/* Features */
+.features-section {
+    padding-bottom: 80px;
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+.feature-card{
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.feature-card h4{
+    margin-bottom: 10px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.feature-card p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+/* Technologies */
+.tech-section {
+    padding-bottom: 80px;
+}
+
+.tech-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tech-grid span{
+    background:#fff;
+    color:#0f172a;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:600;
+    border:1px solid #e2e8f0;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.tech-grid span:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(37,99,235,.15);
+    color:#2563eb;
+}
+
+.tech-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:35px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-weight:700;
+}
+
+/* Developer */
+
+.developer-section {
+    text-align: center;
+    padding:40px 20px 60px;
+}
+
+.developer-section img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid #2563eb;
+}
+
+.developer-section h2 {
+    margin-bottom: 10px;
+}
+
+.developer-section h4 {
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+.developer-section p {
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+}
+
+.stats-section{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    padding:80px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+}
+
+.stat-box h2{
+    color:#60a5fa;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.stat-box span{
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+/* = = = = =  MOBILE RESPONSIVE DESIGN = = = = = */
+@media(max-width:768px){
+
+    /* Hero Section */
+    .hero-section{
+        padding:70px 20px;
+    }
+
+    .hero-section h1{
+        font-size:2.2rem;
+    }
+
+    .hero-section p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    /* About Section */
+    .about-content{
+        flex-direction:column;
+        gap:30px;
+        padding:50px 20px;
+        text-align:center;
+    }
+
+    .about-text h2{
+        font-size:28px;
+    }
+
+    .about-text p{
+        font-size:15px;
+    }
+
+    .about-image img{
+        max-width:100%;
+        height:auto;
+    }
+
+    /* Mission & Vision */
+    .mission-section{
+        flex-direction:column;
+        gap:20px;
+        padding:0 15px 50px;
+    }
+
+    .mission-card{
+        padding:25px;
+    }
+
+    .mission-card p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    /* Features */
+    .features-section{
+        padding:0 15px 50px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-card{
+        padding:20px;
+    }
+
+    /* Technology Section */
+    .tech-section{
+        padding:0 15px 50px;
+    }
+
+    .tech-grid{
+        gap:10px;
+    }
+
+    .tech-grid span{
+        padding:10px 16px;
+        font-size:14px;
+    }
+
+    /* Developer Section */
+    .developer-section{
+        padding:30px 15px 50px;
+    }
+
+    .developer-section img{
+        width:130px;
+        height:130px;
+    }
+
+    .developer-section h2{
+        font-size:26px;
+    }
+
+    .developer-section h4{
+        font-size:18px;
+    }
+
+    .developer-section p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    /* Stats Section */
+    .stats-section{
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        padding:50px 15px;
+    }
+
+    .stat-box{
+        padding:20px;
+    }
+
+    .stat-box h2{
+        font-size:28px;
+    }
+
+    .stat-box span{
+        font-size:13px;
+    }
+
+    /* Common Titles */
+    .section-title{
+        font-size:28px;
+        margin-bottom:25px;
+    }
+}
+/* = = = = = = = = = END ABOUT FILE CSS = = = = = = = = = */
+
+/* = = = = = = = = = START CONTECT FILE CSS = = = = = = = = = */
+
+.contact-page{
+    background:#f8fafc;
+}
+
+/* Hero */
+.contact-hero{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.contact-hero h1{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.contact-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* Info Cards */
+.contact-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:-50px;
+}
+
+.info-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.info-card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+/* Form */
+.contact-form-section{
+    max-width:900px;
+    margin:40px auto;
+    background:#ffffff;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:0.3s;
+}
+
+.contact-form-section:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.contact-form-section h2{
+    text-align:center;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.form-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:35px;
+}
+
+.contact-form{
+    width:100%;
+}
+
+.form-row{
+    display:flex;
+    gap:20px;
+}
+
+.form-group{
+    flex:1;
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+    background:#f8fafc;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:#2563eb;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(37,99,235,.1);
+}
+
+.form-group textarea{
+    resize:none;
+}
+
+.send-btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.send-btn:hover{
+    background:#1d4ed8;
+}
+
+.contact-note{
+    text-align:center;
+    margin-top:20px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* Social */
+.social-section{
+    text-align:center;
+      padding:20px 0 50px;
+}
+
+.social-section h2{
+    margin-bottom:30px;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.social-links a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#0f172a;
+    background:white;
+    padding:14px 24px;
+    border-radius:12px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    transition:.3s;
+    font-weight:600;
+}
+
+.social-links a i{
+    font-size:18px;
+    color:#2563eb;
+}
+
+.social-links a:hover{
+    transform:translateY(-5px);
+    color:#2563eb;
+    box-shadow:0 8px 20px rgba(37,99,235,.15);
+}
+
+/* = = = = =  MOBILE RESPONSIVE DESIGN = = = = = */
+@media(max-width:768px){
+	
+	 .contact-hero{
+        padding:70px 20px;
+    }
+
+    .contact-hero h1{
+        font-size:2.2rem;
+    }
+
+    .contact-hero p{
+        font-size:15px;
+        line-height:1.7;
+    }
+    
+    .contact-info{
+        margin-top:-30px;
+        gap:15px;
+    }
+
+    .info-card{
+        padding:20px;
+    }
+
+    .info-card h3{
+        font-size:18px;
+    }
+
+    .info-card p{
+        font-size:14px;
+    }
+    
+    .contact-form-section{
+        padding:25px 20px;
+        margin:30px auto;
+        border-radius:15px;
+    }
+
+    .contact-form-section h2{
+        font-size:24px;
+    }
+
+    .form-subtitle{
+        font-size:14px;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        padding:12px 14px;
+        font-size:14px;
+    }
+     .social-links{
+        flex-direction:column;
+        align-items:center;
+        gap:12px;
+    }
+
+    .social-links a{
+        width:250px;
+        justify-content:center;
+    }
+}
+/* = = = = = = = = = END CONTECT FILE CSS = = = = = = = = = */
+
+/* = = = = = = = = = START LOGIN/REGISTER FILE CSS = = = = = = = = = */
+
+/* REGISTER PAGE SECTION */
+.register-section{
+	padding: 50px 0;
+	background: #f4f7fc;
+	min-height: 100vh;
+	display: flex;
+    align-items: center;
+}
+
+/* REGISTER CARD */
+.register-card{
+	background: white;
+	padding: 40px;
+	border-radius: 18px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	max-width: 600px;
+    margin: auto;
+}
+
+/* PAGE TITLE & SUBTITLE */
+.register-title{
+	font-size: 42px;
+	font-weight: 700;
+	color: #0d6efd;
+}
+
+.register-subtitle{
+	color: gray;
+	margin-bottom: 30px;
+	font-size: 18px;
+}
+
+/* FORM INPUT FIELDS */
+.custom-input{
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid #dcdcdc;
+	padding-left: 15px;
+	font-size: 16px;
+	box-shadow: none !important;
+}
+
+.otp-btn{
+    min-width: 95px;
+    font-size: 16px;
+    font-weight: 600;
+    background:#0d6efd;
+    border-radius: 0 10px 10px 0;
+    color: white;
+}
+
+.otp-btn:hover{
+	background: #0b5ed7;
+	color: white;
+}
+
+.custom-input:hover{
+    border-color: #b8c7e0;
+}
+
+textarea.custom-input{
+	height: auto;
+	padding-top: 12px;
+}
+
+.custom-input:focus{
+	border-color: #0d6efd;
+	box-shadow: 0 0 8px rgba(13,110,253,0.3) !important;
+}
+
+/* ACTION BUTTONS */
+.register-btn{
+	background: #0d6efd;
+	color: white;
+	padding: 12px 28px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.register-btn:hover{
+	background: #0b5ed7;
+	color: white;
+}
+
+.reset-btn{
+	background: #e9ecef;
+	color: black;
+	padding: 12px 28px;
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	margin-left: 10px;
+}
+
+.reset-btn:hover{
+	background: #d6d8db;
+}
+
+.register-btn,
+.reset-btn{
+	transition: all 0.3s ease;
+}
+
+.register-btn:active,
+.reset-btn:active{
+	transform: scale(0.95);
+	box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+/* TERMS & CONDITIONS CHECKBOX */
+.form-check{
+	margin-top: 20px;
+}
+
+.form-check-label{
+	font-size: 16px;
+	color: #555;
+}
+
+.terms-text{
+	color: #0d6efd;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.form-check-input{
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+}
+
+/* LINKS & DIVIDER */
+.extra-link{
+	text-decoration: none;
+	color: #0d6efd;
+	font-weight: 600;
+	transition: 0.3s;
+}
+
+.extra-link:hover{
+	color: #0b5ed7;
+	text-decoration: underline;
+}
+
+.divider{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	margin: 30px 0 15px;
+	color: gray;
+	font-weight: 500;
+}
+
+.divider::before,
+.divider::after{
+	content: "";
+	flex: 1;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+.divider span{
+	padding: 0 15px;
+}
+
+/* LOGIN / REGISTER REDIRECT LINK */
+.register-redirect{
+	font-size: 16px;
+	color: #555;
+}
+
+.register-redirect a{
+	text-decoration: none;
+	font-weight: 700;
+	color: #0d6efd;
+	transition: 0.3s;
+}
+
+.register-redirect a:hover{
+	color: #0b5ed7;
+	text-decoration: underline;
+}
+
+/* PASSWORD TOGGLE ICON */
+.toggle-password{
+	position: relative;
+	cursor: pointer;
+	border-left: none;
+    color: #64748b;
+}
+
+.input-group .custom-input{
+	border-right: none;
+	border-radius: 10px 0 0 10px !important;
+}
+
+.input-group-text{
+	border-radius: 0 10px 10px 0 !important;
+	background: white;
+}
+
+.input-group .custom-input:focus{
+	box-shadow: none !important;
+}
+
+.input-group:focus-within .custom-input,
+.input-group:focus-within .input-group-text{
+	border-color: #0d6efd;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+@media(max-width:768px){
+
+    .register-section{
+        padding: 30px 15px;
+    }
+
+    .register-card{
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .register-title{
+        font-size: 32px;
+    }
+
+    .register-subtitle{
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .custom-input{
+        height: 46px;
+        font-size: 15px;
+    }
+
+    .register-btn,
+    .reset-btn{
+        width: 100%;
+        margin: 8px 0;
+        font-size: 16px;
+    }
+
+    .custom-alert{
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+/* = = = = = = = = = END LOGIN/REGISTER FILE CSS = = = = = = = = = */
+
+/* = = = = = = = = = START RESETPASSWORD FILE CSS = = = = = = = = = */
+
+/* SETTINGS PAGE LAYOUT */
+.settings-section{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    background:#f8fafc;
+}
+
+.settings-card{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.settings-card:hover{
+    transform: translateY(-3px);
+    transition: .3s;
+}
+
+/* SETTINGS HEADER */
+.settings-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.settings-header i{
+    font-size:55px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.settings-header h2{
+    font-weight:700;
+    margin-bottom:10px;
+    color:#0f172a;
+}
+
+.settings-header p{
+    color:#64748b;
+    margin:0;
+}
+
+/* FORM SECTION */
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#334155;
+}
+
+.form-control{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    background:#f8fafc;
+    transition:.3s;
+}
+
+.form-control:focus{
+    outline:none;
+    border-color:#2563eb;
+    background:white;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* PASSWORD FIELD */
+.password-wrapper{
+    position: relative;
+}
+
+.password-wrapper .form-control{
+    padding-right: 50px;
+}
+
+.toggle_password{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #64748b;
+}
+
+/* BUTTON SECTION */
+.button_group{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+}
+
+.save_btn{
+    flex:1;
+    border:none;
+    padding:8px;
+    border-radius:30px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.save_btn:hover{
+    background:#1d4ed8;
+}
+
+.reset_btn{
+    flex:1;
+    border:none;
+    padding:8px;
+    border-radius:30px;
+    background:#e2e8f0;
+    color:#334155;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.reset_btn:hover{
+    background:#cbd5e1;
+}
+
+@media(max-width:768px){
+
+    .settings-section{
+       	padding:20px 10px;
+    }
+
+    .settings-card{
+        padding:25px;
+        border-radius:15px;
+    }
+
+    .settings-header i{
+        font-size:45px;
+    }
+
+    .settings-header h2{
+        font-size:24px;
+    }
+
+    .settings-header p{
+        font-size:14px;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+    .save-btn,
+    .reset-btn{
+        width:100%;
+    }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normalUser/base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Show Contact Page</title>
+</head>
+<body>
+<section>
+	<div class="card contact-list-card shadow-lg border-0 mt-4 mx-3">
+		<div class="card-header bg-primary text-white 
+		d-flex justify-content-between align-items-center">
+    			
+    		<h3 class="mb-0">
+        		<i class="fa-solid fa-address-book"></i>
+        		My Contacts
+    		</h3>
+
+    		<span class="badge badge-light p-2">
+        		Total Contacts : <span th:text="${contacts.totalElements}"></span>
+    		</span>
+		</div>
+
+		<div class="card-body">
+			<div th:replace="~{fragments/alert :: alertBox}"></div>
+
+    		<div class="table-responsive">
+
+        		<table class="table table-hover table-bordered
+        		text-center align-middle">
+
+            	<thead class="thead-dark">
+                	<tr>
+                    	<th class="d-none d-md-table-cell">ID</th>
+                    	<th>Name</th>
+                    	<th class="d-none d-md-table-cell">Nick Name</th>
+                    	<th>Phone</th>
+                    	<th class="d-none d-md-table-cell">Email</th>
+                    	<th>Relation</th>
+                    	<th>Action</th>
+                	</tr>
+            	</thead>
+
+            <tbody>
+
+                <tr th:each="c : ${contacts}">
+                    <td class="d-none d-md-table-cell" 
+                    th:text="${'CT00'+c.c_id}"></td>
+
+                    <td>
+    					<a th:href="@{'/user/contact/' + ${c.c_id}}"
+       					class="font-weight-bold text-dark">
+        				<span th:text="${c.name}"></span>
+    					</a>
+					</td>
+
+                    <td class="d-none d-md-table-cell"
+                     th:text="${c.secondName}"></td>
+                     
+                    <td th:text="${c.phone}"></td>
+                    
+                    <td class="d-none d-md-table-cell" th:text="${c.email}"></td>
+                    
+                    <td>
+                    	<span class="badge badge-info px-3 py-2"
+                        th:text="${c.relation}">
+                        </span>
+                    </td>
+
+                    <td>
+						<form th:action="@{'/user/update_contact/' + ${c.c_id}}"
+      					method="post" style="display:inline;">
+
+    						<button type="submit"
+            				class="btn btn-sm btn-warning mr-2">
+
+        						<i class="fa-solid fa-pen-to-square"></i>
+    						</button>
+						</form>
+
+                    	<a href="#" th:onclick="|deleteContact(${c.c_id})|"
+                        class="btn btn-sm btn-danger">
+
+    						<i class="fa-solid fa-trash"></i>
+
+						</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+		<nav aria-label="Page navigation example">
+		 <ul class="pagination justify-content-center">
+		  <li th:class="${currentPage == 0 ? 'page-item disabled' : 'page-item'}">
+    		<a class="page-link"
+       		th:href="@{'/user/show_contacts/' + ${currentPage-1}}">
+       			Previous
+    		</a>
+		  </li>
+		  
+		  <li th:classappend="${currentPage==i-1?'active':''}"
+		  th:each="i : ${#numbers.sequence(1, totalPages)}"
+		  class="page-item">
+		   <a class="page-link" href="#" 
+		   th:href="@{'/user/show_contacts/'+${i-1}}">
+		   <span th:text="${i}"></span></a>
+		  </li>
+							
+		  <li th:class="${currentPage == totalPages-1 ? 'page-item disabled' : 'page-item'}">
+    		<a class="page-link"
+       		th:href="@{'/user/show_contacts/' + ${currentPage+1}}">
+       			Next
+    		</a>
+		  </li>
+		 </ul>
+	    </nav>
+
+		</div>
+	</div>
+</div>
+
+<script>
+setTimeout(() => {
+
+    fetch('/user/remove-message')
+        .then(() => {
+            const alertBox = document.querySelector('.custom-alert');
+            if(alertBox){
+                alertBox.style.display = 'none';
+            }
+        });
+
+}, 3000);
+</script>
+</section>
+</body>
+</html>

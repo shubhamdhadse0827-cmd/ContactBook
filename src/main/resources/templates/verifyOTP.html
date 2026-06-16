@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Verify OTP</title>
+</head>
+<body>
+
+<section class="register-section">
+
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="col-md-6">
+
+				<div class="register-card">
+
+					<h1 class="text-center register-title">
+						Verify OTP
+					</h1>
+
+					<p class="text-center register-subtitle">
+						Enter the OTP sent to your registered email
+					</p>
+
+					<div th:replace="~{fragments/alert :: alertBox}"></div>
+
+					<!-- OTP Form -->
+					<form th:action="@{/verify-otp}" method="post">
+
+						<div class="form-group mb-3">
+
+							<label>Enter OTP</label>
+
+							<input type="text"
+								class="form-control custom-input"
+								name="otp"
+								placeholder="Enter 6-digit OTP"
+								maxlength="6"
+								required>
+
+						</div>
+
+						<div class="text-center mt-4">
+
+							<button type="submit"
+								class="btn register-btn">
+								Verify OTP
+							</button>
+
+						</div>
+
+					</form>
+
+					<!-- Back link -->
+					<p class="text-center register-redirect mt-3">
+						Didn't receive OTP?
+						<a th:href="@{/forgot}">
+							Resend OTP
+						</a>
+					</p>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+</body>
+</html>

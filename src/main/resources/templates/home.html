@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Home Page</title>
+</head>
+<body>
+
+<!-- HERO / BANNER SECTION -->
+<section class="banner d-flex align-items-center">
+	<div class="container hero-content">
+     	<div class="row">
+            <div class="col-lg-8 text-white">
+				
+				<!-- Main Heading -->
+                <h1 class="hero-title">
+                    Welcome to <br>
+                    <span>Smart ContactBook</span>
+                </h1>
+
+				<!-- Hero Description -->
+                <p class="hero-text">
+                    A Smarter Way To Store, Manage And Access
+                    Your Important Contacts
+                </p>
+				     
+				 <!-- Statistics Cards -->
+                <div class="stats-container">
+
+                    <div class="stat-card">
+                        <h3>4.9★</h3>
+                        <p>Ratings</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>10K+</h3>
+                        <p>Downloads</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>24/7</h3>
+                        <p>Support</p>
+                    </div>
+
+                </div>
+				
+				<!-- Call To Action Button -->
+				<a th:href="@{/register}">
+                <button class="hero-btn">
+                    Get Started
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USER REVIEWS SECTION -->
+<section class="review-section">
+	<div class="review-wrapper">
+			
+		<!-- Section Heading -->
+        <h2 class="text-center mb-4">⭐ What Users Say</h2>
+	        
+	    <!-- Review Container (Scrollable After Expansion) -->
+		<div class="review-scroll" id="reviewContainer">
+    		<div class="row">
+				
+				<!-- Review Cards -->
+        		<div class="col-md-4 mb-4"
+             	th:each="r, stat : ${reviews}"
+             	th:classappend="${stat.index >= 3} ? 'extra-review d-none' : ''">
+					
+					<!-- Reviewer Profile Image -->
+            		<div class="review-card">
+                		<img th:src="@{app.default.contact.image}"
+                         class="review-img">
+
+						<!-- Reviewer Name -->
+                    	<h5 th:text="${r.user.name}"></h5>
+	
+	                    <!-- Rating Stars -->
+                    	<div class="rating">
+                        	<span th:if="${r.rating >= 1}">⭐</span>
+                        	<span th:if="${r.rating >= 2}">⭐</span>
+                        	<span th:if="${r.rating >= 3}">⭐</span>
+                        	<span th:if="${r.rating >= 4}">⭐</span>
+                        	<span th:if="${r.rating >= 5}">⭐</span>
+                    	</div>
+                    	
+                        <!-- Review Comment -->
+                    	<p class="review-comment"
+                       	th:text="${r.comment}">
+                    	</p>
+            		</div>
+        		</div>
+    		</div>
+		</div>
+
+		<!-- Review Action Buttons -->
+		<div class="review-btns"
+     	th:if="${#lists.size(reviews) > 3}">
+			
+			<!-- Show All Reviews Button -->
+    		<button id="viewAllBtn"
+            class="btn btn-primary">
+        		View All Reviews
+    		</button>
+
+			<!-- Collapse Reviews Button -->
+    		<button id="closeBtn"
+            class="btn btn-outline-secondary">
+        		Close Reviews
+    		</button>
+		</div>
+	</div>
+</section>	
+</body>
+</html>

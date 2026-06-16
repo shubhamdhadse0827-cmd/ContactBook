@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Forgot Password</title>
+</head>
+<body>
+
+<section class="register-section">
+
+	<div class="container">
+		
+		<div class="row justify-content-center">
+
+			<div class="col-md-6">
+
+				<div class="register-card">
+
+					<h1 class="text-center register-title">
+						Forgot Password
+					</h1>
+
+					<p class="text-center register-subtitle">
+						Enter your registered email to receive OTP
+					</p>
+
+
+					<div th:replace="~{fragments/alert :: alertBox}"></div>
+
+					<!-- Step 1: Send OTP -->
+					<form th:action="@{/send-otp}" method="post">
+
+						<div class="form-group mb-3">
+
+							<label>Email Address</label>
+
+							<input type="email"
+								class="form-control custom-input"
+								name="email"
+								placeholder="Enter your registered email"
+								required>
+
+						</div>
+
+						<div class="text-center mt-4">
+
+							<button type="submit"
+								class="btn register-btn">
+
+								Send OTP
+							</button>
+
+						</div>
+
+					</form>
+
+					<!-- Divider -->
+					<div class="divider">
+						<span>OR</span>
+					</div>
+
+					<!-- Back to login -->
+					<p class="text-center register-redirect">
+						Remember password?
+						<a th:href="@{/login}">
+							Login Here
+						</a>
+					</p>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	
+<script th:if="${session.msg != null}">
+
+    setTimeout(function () {
+
+        fetch('/user/remove-message');
+
+    }, 100);
+
+</script>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normalUser/base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>AddContact Page</title>
+</head>
+<body>
+<section>
+	<!-- ======== CONTACT CARD ======== -->
+	<div class="card contact-card shadow mt-4">
+		<div class="card-body p-5">
+
+			<div th:replace="~{fragments/alert :: alertBox}"></div>
+
+			<h2 class="text-center mb-4">
+				<i class="fa fa-address-book text-primary"></i>
+					Add New Contact
+			</h2>
+
+			<form th:action="@{/user/contact_processing}" method="post"
+			th:object="${contact}" enctype="multipart/form-data">
+
+				<!-- Row 1 -->
+				<div class="row">
+					<div class="col-md-6 mb-4">
+						<label>Name</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> 
+									<i class="fa fa-user"></i>
+								</span>
+							</div>
+							<input type="text" class="form-control"
+							placeholder="Enter Name" name="name" required>
+						</div>
+					</div>
+
+					<div class="col-md-6 mb-4">
+						<label>Nick Name</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="fa fa-user-tag"></i>
+								</span>
+							</div>
+							<input type="text" class="form-control"
+							placeholder="Enter Nick Name" name="secondName"
+							required>
+						</div>
+					</div>
+				</div>
+
+				<!-- Row 2 -->
+				<div class="row">
+					<div class="col-md-6 mb-4">
+						<label>Email Address</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> 
+									<i class="fa fa-envelope"></i>
+								</span>
+							</div>
+							<input type="email" class="form-control"
+							placeholder="Enter Email" name="email" required>
+						</div>
+					</div>
+
+					<div class="col-md-6 mb-4">
+					<label>Phone Number</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="fa fa-phone"></i>
+								</span>
+							</div>
+							<input type="tel" class="form-control"
+							placeholder="Enter Phone Number" name="phone"
+							required pattern="[0-9]{10,13}">
+						</div>
+					</div>
+				</div>
+
+				<!-- Row 3 -->
+				<div class="row">
+					<div class="col-md-6 mb-4">
+						<label>Relation</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="fa fa-users"></i>
+								</span>
+							</div>
+							<select class="form-control" name="relation"
+							required>
+								<option value="">Select Relation</option>
+								<option value="Friend">Friend</option>
+								<option value="Family">Family</option>
+								<option value="Colleague">Colleague</option>
+								<option value="Client">Client</option>
+								<option value="Teacher">Teacher</option>
+								<option value="Relative">Relative</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-md-6 mb-4">
+						<label>Profile Image</label>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"> 
+									<i class="fa fa-image"></i>
+								</span>
+							</div>
+							<input type="file" class="form-control" 
+							name="profileImage" accept="image/png,image/jpeg">
+						</div>
+					</div>
+				</div>
+
+				<!-- Description -->
+				<div class="form-group">
+					<label>Description</label>
+					<textarea class="form-control" id="mytextarea" rows="6"
+					placeholder="Write something about this contact..."
+					name="description"></textarea>
+				</div>
+
+				<!-- Buttons -->
+				<div class="text-center mt-4">
+					<button type="submit" class="btn btn-primary px-5 mr-3">
+						<i class="fa fa-save"></i> Save Contact
+					</button>
+
+					<button type="reset" class="btn btn-outline-secondary px-5">
+						<i class="fa fa-eraser"></i> Reset
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<!-- ======== AUTO HIDE ALERT MESSAGE ======== -->
+<script>
+
+setTimeout(() => {
+
+    fetch('/user/remove-message')
+        .then(() => {
+            const alertBox = document.querySelector('.custom-alert');
+
+            if(alertBox){
+                alertBox.style.display = 'none';
+            }
+        });
+
+}, 3000);
+</script>
+
+
+<!-- ======== CKEDITOR INITIALIZATION ======== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const editorElement = document.querySelector('#mytextarea');
+
+    if (editorElement) {
+        ClassicEditor
+            .create(editorElement)
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+});
+</script>
+</section>
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="Layout(content)">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="" th:href="@{/css/user1.css}" />
+<link rel="stylesheet" href="" th:href="@{/css/alert.css}" />
+
+<title th:text="${title}">Base HTML</title>
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="fixed-top navbar navbar-expand-lg navbar-light bg-primary">
+	<span class="navbar-brand font-weight-bold desktop-brand"
+     style="font-size:30px;">
+    	ContactBook
+	</span>
+			
+	<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
+		 data-target="#navbarSupportedContent"
+		 aria-controls="navbarSupportedContent" aria-expanded="false"
+		 aria-label="Toggle navigation">
+		 <span class="navbar-toggler-icon"></span>
+		 </button> -->
+
+	<div class="navbar-content">
+		
+		<!-- ================= DESKTOP NAVBAR ================= -->
+		<div class="desktop-navbar">
+
+    		<!-- Search Bar -->
+    		<form class="search-form mx-auto">
+    			<div class="input-group">
+    				<div class="input-group-prepend">
+    					<span class="input-group-text">
+    						<i class="fas fa-search"></i> 
+    					</span>
+    				</div> 
+ 
+ 	   				<input type="search" class="search-bar form-control"
+       				placeholder="Search Contacts..." 
+       				onkeyup="searchContacts(this)">
+    			</div>
+    			 
+    			<div class="search-result"></div>
+    		</form>
+			
+			<!-- User Profile & Logout -->
+    		<ul class="navbar-nav align-items-center text-uppercase">
+
+        		<li class="nav-item d-flex align-items-center">
+            		<div class="user-avatar" th:text="${initials}"></div>
+            		<span class="user-name" th:text="${user.name}"></span>
+        		</li>
+
+        		<li class="nav-item">
+            		<form th:action="@{/logout}" method="post" class="mb-0">
+                		<button type="submit" class="btn btn-danger">
+                    		<i class="fa fa-sign-out-alt"></i> Logout
+                		</button>
+            		</form>
+        		</li>
+    		</ul>
+		</div>
+		
+		<!-- ================= MOBILE NAVBAR ================= -->
+		<div class="mobile-top-bar">
+
+    		<span class="navbar-brand font-weight-bold" 
+    		style="font-size: 30px;">
+				ContactBook 
+			</span>
+			
+			<!-- Avatar & Menu Button -->
+    		<div class="mobile-header">
+        		<div class="user-avatar" th:text="${initials}"></div>
+
+        			<button class="navbar-toggler d-block"
+                	type="button" onclick="toggleSidebar()">
+            			<span class="navbar-toggler-icon"></span>
+        			</button>
+    			</div>
+			</div>
+
+			<!-- Mobile Search -->
+			<form class="search-form mobile-search">
+
+    			<div class="input-group">
+        			<div class="input-group-prepend">
+            			<span class="input-group-text">
+                			<i class="fas fa-search"></i>
+            			</span>
+        			</div>
+
+        			<input type="search" class="search-bar form-control"
+               		placeholder="Search Contacts..." onkeyup="searchContacts(this)">
+    			</div>
+
+    			<div class="search-result"></div>
+			</form>
+		</div>
+	</nav>
+
+
+
+<!-- sidebar -->
+<div class="sidebar">
+	<span class="cross" onclick="toggleSidebar()">&times;</span>
+		 
+	<a href="#" th:href="@{/user/index}" class="item text-uppercase">
+		<i class="fa-solid fa-house"></i> Home</a> 
+			
+	<a href="#" th:href="@{/user/add_contact}" class="item text-uppercase">
+		<i class="fa-solid fa-pen"></i> Add Contact</a> 
+		
+	<a href="#" th:href="@{/user/show_contacts/0}" class="item text-uppercase">
+		<i class="fa-solid fa-address-book"></i> View Contacts</a> 
+		
+	<a href="#" th:href="@{/user/myProfile}" class="item text-uppercase">
+		<i class="fa-solid fa-circle-user"></i> My Profile</a>
+		
+	<a href="#" th:href="@{/user/settings}" class="item text-uppercase">
+		<i class="fa-solid fa-gear"></i> Setting</a>
+		
+	<form th:action="@{/logout}" method="post">
+    	<button type="submit" 
+    	class="item border-0 bg-transparent text-uppercase">
+        	<i class="fa-solid fa-right-to-bracket"></i> Logout
+    	</button>
+	</form>	
+</div>
+	
+<!-- content area -->
+<div class="content">	
+    <div th:replace="${content}"></div>
+</div>
+			
+<!-- ================= JAVASCRIPT LIBRARIES ================= -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous">
+</script>
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js">
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- ================= CONTACT DELETE FUNCTION ================= -->	
+<script>
+	function deleteContact(c_id){
+
+		swal({
+	        title: "Delete Contact?",
+	        text: "Are you sure you want to permanently delete this contact?",
+	        icon: "warning",
+	        buttons: ["Cancel", "Delete"],
+	        dangerMode: true,
+	    })
+	    .then((willDelete) => {
+
+	        if (willDelete) {
+
+	            window.location = "/user/delete_contact/" + c_id;
+
+	        } else {
+
+	            swal("Contact is safe!", {
+	                icon: "info",
+	            });
+
+	        }
+
+	    });
+
+	}
+	</script>
+	
+<script src="" th:src="@{/javascript/script.js}"></script>	
+</body>
+</html> 

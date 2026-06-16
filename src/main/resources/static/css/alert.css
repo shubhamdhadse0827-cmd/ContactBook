@@ -1,0 +1,63 @@
+/* = = = = = = = = = COMMON ALERT COMPONENT = = = = = = = = = */
+
+.custom-alert{
+	border-radius: 12px;
+	padding: 15px 20px;
+	font-size: 17px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+	animation: fadeIn 0.4s ease;
+}
+
+.success-icon{
+	color: #198754;
+	margin-right: 8px;
+	font-size: 22px;
+}
+
+.danger-icon{
+	color: #dc3545;
+	margin-right: 8px;
+	font-size: 22px;
+}
+
+.warning-icon{
+	color: #ffc107;
+	margin-right: 8px;
+	font-size: 22px;
+}
+
+.success{
+	background-color: #d4edda;
+	color: #155724;
+	border: 1px solid #c3e6cb;
+}
+
+.danger{
+	background-color: #f8d7da;
+	color: #721c24;
+	border: 1px solid #f5c6cb;
+}
+
+.warning{
+	background-color: #fff3cd;
+	color: #856404;
+	border: 1px solid #ffeeba;
+}
+
+@keyframes fadeIn{
+	from{
+		opacity:0;
+		transform:translateY(-10px);
+	}
+	to{
+		opacity:1;
+		transform:translateY(0);
+	}
+}
+
+/* = = = = = = = = = END COMMON ALERT COMPONENT = = = = = = = = = */

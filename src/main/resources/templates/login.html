@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Login Page</title>
+</head>
+<body>
+<section class="register-section">
+	<div class="container">
+	
+		<div class="row justify-content-center">
+			
+			<div class="col-md-6">
+
+				<div class="register-card">
+
+					<h1 class="text-center register-title">
+						Welcome Back
+					</h1>
+
+					<p class="text-center register-subtitle">
+						Login to access your ContactBook account
+					</p>
+
+					<!-- Success Logout Message -->
+					<div th:if="${param.logout}"
+					class="alert alert-success text-center custom-alert">
+
+						<i class="fa-solid fa-circle-check success-icon"></i>
+							You have been logged out successfully.
+					</div>
+
+					<!-- Login Error Message -->
+					<div th:if="${param.error}"
+					class="alert alert-danger text-center custom-alert">
+
+						<i class="fa-solid fa-circle-exclamation danger-icon"></i>
+							Invalid Email or Password
+					</div>
+
+					<form th:action="@{/do_login}" method="post">
+
+						<div class="form-group mb-3">
+
+							<label for="username">Email Address</label>
+							<input type="email" required
+							class="form-control custom-input"
+							id="username" name="username"
+							placeholder="Enter your email">
+						</div>
+
+						<div class="form-group mb-2">
+
+    						<label for="password">Password</label>
+    						<div class="input-group">
+
+        						<input type="password" required
+              					class="form-control custom-input"
+               					id="password" name="password"
+                                placeholder="Enter your password"
+               					autocomplete="current-password">
+
+        						<div class="input-group-append">
+
+            						<span class="input-group-text toggle-password"
+                  					id="togglePassword">
+
+                						<i class="fa-solid fa-eye"></i>
+            						</span>
+        						</div>
+							</div>
+						</div>
+
+						<!-- Forgot Password -->
+						<div class="text-end mb-3">
+
+							<a th:href="@{/forgot}"
+							class="extra-link">
+								Forgot Password?
+							</a>
+						</div>
+
+						<div class="text-center mt-4">
+							<button type="submit"
+							class="btn register-btn">
+								<i class="fa-solid fa-right-to-bracket me-2"></i>
+								Login
+							</button>
+
+							<button type="reset"
+							class="btn reset-btn ms-3">
+								Reset
+							</button>
+						</div>
+					</form>
+	
+					<!-- Divider -->
+					<div class="divider">
+							<span>OR</span>
+					</div>
+					
+					<!-- Register Redirect -->
+					<p class="text-center mt-3 register-redirect">
+						Don't have an account?
+
+						<a th:href="@{/register}">
+							Register Here
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

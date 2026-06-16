@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{normalUser/base::Layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>User Dashboard</title>
+</head>
+<body>
+<section>
+	<!-- ======= DASHBOARD BANNER SECTION ======= -->
+	<div class="banner-video">
+    	<img th:src="@{https://res.cloudinary.com/dvxil62kq/image/upload/q_auto/f_auto/v1781607598/banner_qrovcy.gif}" alt="Banner GIF" 
+    	class="banner-gif">
+	</div>
+	
+	<!-- ======= STATISTICES CARDS SECTION ======= -->
+	<div class="container stats-container">
+  		<div class="stat-card">
+    		<h3 th:text="${totalContacts}">0</h3>
+    		<p>Total Contacts</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${familyContacts}">0</h3>
+    		<p>Family</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${friendContacts}">0</h3>
+    		<p>Friends</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${relativeContacts}">0</h3>
+    		<p>Relatives</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${colleagueContacts}">0</h3>
+    		<p>Colleague</p>
+  		</div>
+  
+  		<div class="stat-card">
+    		<h3 th:text="${teacherContacts}">0</h3>
+    		<p>Teacher</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${clientContacts}">0</h3>
+    		<p>Client</p>
+  		</div>
+
+  		<div class="stat-card">
+    		<h3 th:text="${otherContacts}">0</h3>
+    		<p>Others</p>
+  		</div>
+	</div>
+
+	<!-- ======= USER REVIEW SECTION ======= -->
+	<div class="review-container">
+    	
+    	<div class="review-card">
+        	<h3 class="review-title">⭐ Share Your Experience</h3>
+        	<p class="review-subtitle">
+        		We value your feedback to improve our service
+        	</p>
+
+         	<form th:action="@{/user/save_review}" method="post">
+
+				<input type="hidden" th:name="${_csrf.parameterName}" 
+				th:value="${_csrf.token}" />
+
+	            <label class="form-label">Rating</label>
+    	        <select name="rating" class="form-control custom-input"
+    	        required>
+                	<option value="">Select Rating</option>
+                	<option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                	<option value="4">⭐⭐⭐⭐ Good</option>
+                	<option value="3">⭐⭐⭐ Average</option>
+                	<option value="2">⭐⭐ Poor</option>
+                	<option value="1">⭐ Very Bad</option>
+            	</select>
+
+            	<label class="form-label mt-3">Your Review</label>
+            	<textarea name="comment" rows="3"
+                 class="form-control custom-input" id="mytextarea"
+                 placeholder="Write your honest feedback..."></textarea>
+
+            	<button type="submit" class="btn-submit mt-3">
+                	Submit Review 🚀
+            	</button>
+        	</form> 
+    	</div>
+	</div>
+
+<!-- ======= CKEDITOR INITIALIZATION ======= -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const editorElement = document.querySelector('#mytextarea');
+
+    if (editorElement) {
+        ClassicEditor
+            .create(editorElement)
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+});
+</script>
+</section>
+</body>
+</html>
