@@ -45,7 +45,9 @@ body{
 .sidebar .cross{
     display: none;
 }
-
+.sidebar{
+    display: none;
+}
 
 /* RESPONSIVE DESIGN */
 @media (max-width:768px){
