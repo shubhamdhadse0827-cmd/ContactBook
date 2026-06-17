@@ -46,10 +46,7 @@ body{
 .sidebar .cross{
     display: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> ddba9bce92993d4cd5e45451c815ca1292cc7ba3
 .sidebar{
     display: none;
 }
@@ -239,7 +236,7 @@ body{
 	}
 
 	.navbar-brand{
-        font-size: 22px !important;
+        font-size: 28px !important;
     }
 	
  	/* Footer Container */
@@ -513,6 +510,10 @@ body{
     font-size: 15px;
 }
 
+.extra-card{
+	display: none;
+}
+
 /* = = = = =  MOBILE RESPONSIVE DESIGN = = = = = */
 
 @media (max-width: 768px){
@@ -551,20 +552,24 @@ body{
     /* Stats Cards */
     .stats-container{
         justify-content: center;
-        gap: 12px;
+        gap: 25px;
     }
 
+	.extra-card{
+		display: block;
+	}
+	
     .stat-card{
-        width: 110px;
-        padding: 14px;
+        width: 160px;
+        padding: 20px 40px;
     }
 
     .stat-card h3{
-        font-size: 22px;
+        font-size: 28px;
     }
 
     .stat-card p{
-        font-size: 14px;
+        font-size: 16px;
     }
 
     /* CTA Button */
