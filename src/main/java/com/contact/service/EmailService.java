@@ -5,7 +5,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
@@ -68,13 +67,5 @@ public class EmailService {
 	        javaMailSender.send(msg);
 	}
 	
-	@PostConstruct
-	public void testMail() {
-	    try {
-	        sendOtpEmail("shubhamdhadse328@gmail.com", "TEST123");
-	        System.out.println("MAIL TEST SUCCESS");
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
+	
 }
