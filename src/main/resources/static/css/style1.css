@@ -3,7 +3,6 @@ body{
 	background: #e2e2e2;
 }
 
-
 /* SIDEBAR SECTION */
 .sidebar{
     width:18%;
@@ -48,11 +47,16 @@ body{
 }
 
 .sidebar{
-    display: none;
+	display: none;
 }
+
 
 /* RESPONSIVE DESIGN */
 @media (max-width:768px){
+	
+	.sidebar{
+		display: block;
+	}
 	
     .sidebar{
         position: fixed;
@@ -355,7 +359,7 @@ body{
 }
 
 .stat-card{
-	width: 140px;
+	width: 180px;
 	padding: 18px;
 	background: rgba(255,255,255,0.12);
 	backdrop-filter: blur(8px);
@@ -363,6 +367,10 @@ body{
 	text-align: center;
 	border: 1px solid rgba(255,255,255,0.2);
 	transition: 0.3s;
+}
+
+.extra-card{
+	display: none;
 }
 
 .stat-card:hover{
@@ -510,10 +518,6 @@ body{
     font-size: 15px;
 }
 
-.extra-card{
-	display: none;
-}
-
 /* = = = = =  MOBILE RESPONSIVE DESIGN = = = = = */
 
 @media (max-width: 768px){
@@ -552,20 +556,20 @@ body{
     /* Stats Cards */
     .stats-container{
         justify-content: center;
-        gap: 25px;
+        gap: 20px;
     }
 
-	.extra-card{
-		display: block;
-	}
-	
     .stat-card{
-        width: 160px;
-        padding: 20px 40px;
+        width: 140px;
+        padding: 18px;
+    }
+    
+    .extra-card{
+    	display: block;
     }
 
     .stat-card h3{
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .stat-card p{
