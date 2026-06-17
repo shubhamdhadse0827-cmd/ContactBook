@@ -3,6 +3,7 @@ body{
 	background: #e2e2e2;
 }
 
+
 /* SIDEBAR SECTION */
 .sidebar{
     width:18%;
@@ -46,6 +47,9 @@ body{
     display: none;
 }
 
+.sidebar{
+    display: none;
+}
 
 /* RESPONSIVE DESIGN */
 @media (max-width:768px){

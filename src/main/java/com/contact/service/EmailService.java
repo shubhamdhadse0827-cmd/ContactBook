@@ -41,9 +41,9 @@ public class EmailService {
 	        System.out.println("Email sent successfully");
 	}
 	
-	public void sendOtpEmail(String toEmail, String otp) {
+	public void sendOtpEmail(String toEmail, String otp) throws Exception {
 
-	    try {
+	    
 
 	        MimeMessage msg = javaMailSender.createMimeMessage();
 
@@ -65,9 +65,5 @@ public class EmailService {
 	                        "ContactBook"));
 
 	        javaMailSender.send(msg);
-
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
 	}
 }
