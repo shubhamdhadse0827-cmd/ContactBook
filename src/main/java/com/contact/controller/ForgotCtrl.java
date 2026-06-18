@@ -18,6 +18,7 @@ import com.contact.dao.UserRepository;
 import com.contact.entities.User;
 import com.contact.helper.Message;
 import com.contact.service.EmailService;
+import com.contact.service.ResendEmailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -27,8 +28,12 @@ public class ForgotCtrl {
 	@Autowired
 	private UserRepository userRepository;
 	
+	/*
+	 * @Autowired private EmailService emailService;
+	 */
+	
 	@Autowired
-	private EmailService emailService;
+	private ResendEmailService resendEmailService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -83,7 +88,9 @@ public class ForgotCtrl {
 
 	    try {
 
-	        emailService.sendOtpEmail(email, otp);
+			/* emailService.sendOtpEmail(email, otp); */
+	    	
+	    	resendEmailService.sendOtpEmail(email, otp);
 	        session.setAttribute("msg",
 	                new Message(
 	                        "OTP has been sent to your email!",

@@ -35,7 +35,7 @@ public class MyConfig {
 
 	        http
 	            .authorizeHttpRequests(auth -> auth
-	                .requestMatchers("/", "/about", "/contact", "/register", "/login", "/register-send-otp",  "/register_done")
+	                .requestMatchers("/", "/about", "/contact", "/register", "/login", "/register-send-otp",  "/register_done", "/test-resend")
 	                .permitAll()
 	                .requestMatchers(
 	                        "/forgot",

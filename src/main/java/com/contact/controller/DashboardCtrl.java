@@ -22,6 +22,7 @@ import com.contact.entities.Review;
 import com.contact.entities.User;
 import com.contact.helper.Message;
 import com.contact.service.EmailService;
+import com.contact.service.ResendEmailService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -29,8 +30,12 @@ import jakarta.validation.Valid;
 @Controller
 public class DashboardCtrl {
 	
+	/*
+	 * @Autowired private EmailService emailService;
+	 */
+	
 	@Autowired
-	private EmailService emailService;
+	private ResendEmailService resendEmailService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -146,7 +151,8 @@ public class DashboardCtrl {
 
 	    try {
 
-	        emailService.sendOtpEmail(email, otp);
+			/* emailService.sendOtpEmail(email, otp); */
+	    	resendEmailService.sendOtpEmail(email, otp);
 
 	        return "OTP sent successfully!";
 
@@ -206,7 +212,8 @@ public class DashboardCtrl {
 			System.out.println(result.getEmail());
 			
 			try {
-			    emailService.sendEmail(result.getEmail());
+				/* emailService.sendEmail(result.getEmail()); */
+				resendEmailService.sendRegistrationSuccessEmail(result.getEmail());
 			} catch (Exception e) {
 			    e.printStackTrace();
 			}
@@ -243,4 +250,5 @@ public class DashboardCtrl {
 
 	    session.removeAttribute("msg");
 	}
+	
 }
