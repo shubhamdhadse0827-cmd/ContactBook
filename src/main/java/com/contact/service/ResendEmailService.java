@@ -13,7 +13,7 @@ import okhttp3.Response;
 @Service
 public class ResendEmailService {
 		
-	@Value("${resend.api.key}")
+	@Value("${RESEND_API_KEY:${resend.api.key}}")
 	private String apiKey;
 	
 	
